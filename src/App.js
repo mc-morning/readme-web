@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react";
-import Main from "./routes/Main";
-import Login from "./routes/Login";
-import CreateForm from "./routes/CreateForm";
+import Main from "./routes/Main/Main";
+import Login from "./routes/Login/Login";
+import CreateForm from "./routes/CreateForm/CreateForm";
 import WriteAnswer from "./routes/WriteAnswer";
 import FormList from "./routes/FormList";
 import Nav from "./components/Nav/Nav";
