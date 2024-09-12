@@ -1,6 +1,6 @@
 import React from "react";
 import { Wrapper, Title, Highlight } from "./CreateForm.styles";
-import FormDesc from "../../components/CreateForm/FormDesc";
+import FormDesc from "../../../components/CreateForm/Create/FormDesc";
 
 function CreateForm() {
   return (

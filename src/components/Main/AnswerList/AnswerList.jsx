@@ -71,6 +71,46 @@ function AnswerList() {
           <CheckBtn>답변 확인하기</CheckBtn>
         </BtnBox>
       </Answer>
+      <Answer>
+        <img src={Cloud} style={{ marginLeft: "20px" }} />
+        <AnsTitle>
+          <Title>
+            LG 유플러스 미니 프로젝asdasdjkahdkfjahkjfhl;jsdhfklhj트
+          </Title>
+          <Date>
+            생성일 2024.09.08
+            <img src={Trash} style={{ marginLeft: "5px" }} />
+          </Date>
+        </AnsTitle>
+        <CommentBox>
+          <img src={Comment} />
+          <Date>답변 6개</Date>
+        </CommentBox>
+        <BtnBox>
+          <CopyBtn>링크 복사</CopyBtn>
+          <CheckBtn>답변 확인하기</CheckBtn>
+        </BtnBox>
+      </Answer>
+      <Answer>
+        <img src={Cloud} style={{ marginLeft: "20px" }} />
+        <AnsTitle>
+          <Title>
+            LG 유플러스 미니 프로젝asdasdjkahdkfjahkjfhl;jsdhfklhj트
+          </Title>
+          <Date>
+            생성일 2024.09.08
+            <img src={Trash} style={{ marginLeft: "5px" }} />
+          </Date>
+        </AnsTitle>
+        <CommentBox>
+          <img src={Comment} />
+          <Date>답변 6개</Date>
+        </CommentBox>
+        <BtnBox>
+          <CopyBtn>링크 복사</CopyBtn>
+          <CheckBtn>답변 확인하기</CheckBtn>
+        </BtnBox>
+      </Answer>
     </Wrapper>
   );
 }
