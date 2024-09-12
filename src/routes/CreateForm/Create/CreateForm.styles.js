@@ -16,7 +16,7 @@ export const Title = styled.div`
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
-  padding: 80px;
+  padding: 80px 500px 80px 0px;
 `;
 
 export const Highlight = styled.span`
