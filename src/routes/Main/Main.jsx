@@ -1,6 +1,6 @@
 import React from "react";
 import BannerImg from "../../assets/BannerImg.svg";
-import AnswerList from "../../components/Main/AnswerList/AnswerList";
+import AnswerList from "../../components/Main/FormList/FormList";
 import { Wrapper, Banner, BannerText } from "./Main.styles";
 
 function Main() {
