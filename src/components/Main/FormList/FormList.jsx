@@ -16,10 +16,14 @@ import {
   BtnBox,
   CopyBtn,
   CheckBtn,
-} from "./AnswerList.styles";
+} from "./FormList.styles";
 
 function AnswerList() {
   const navigate = useNavigate();
+
+  const handleCheck = () => {
+    navigate("/answercheck");
+  };
 
   return (
     <Wrapper>
@@ -48,7 +52,7 @@ function AnswerList() {
         </CommentBox>
         <BtnBox>
           <CopyBtn>링크 복사</CopyBtn>
-          <CheckBtn>답변 확인하기</CheckBtn>
+          <CheckBtn onClick={handleCheck}>답변 확인하기</CheckBtn>
         </BtnBox>
       </Answer>
       <Answer>

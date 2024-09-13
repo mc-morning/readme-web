@@ -130,4 +130,5 @@ export const CheckBtn = styled.button`
   font-style: normal;
   font-weight: 500;
   line-height: 150%;
+  cursor: pointer;
 `;
