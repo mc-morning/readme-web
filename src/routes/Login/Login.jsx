@@ -5,9 +5,10 @@ import Kakao from "../../assets/kakao.png";
 
 const Login = () => {
   const REST_API_KEY = "55319c0c9164330577c82ef75df5534e";
-  const REDIRECT_URI = "http://localhost:3000/auth";
-  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+  const REDIRECT_URI =
+    "https://homeless-sheela-mc-morning-2364610f.koyeb.app/auth/kakao/callback";
 
+  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   const loginHandler = () => {
     window.location.href = link;
   };
