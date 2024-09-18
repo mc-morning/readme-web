@@ -1,17 +1,36 @@
-import React from "react";
-import { Desc, TitleBox, Wrapper } from "./WriteForm.styles";
+import React, { useState } from "react";
+import {
+  Answer,
+  InputBox,
+  Wrapper,
+  CharCount,
+  PrevBtn,
+  NextBtn,
+  BtnBox,
+} from "./WriteForm.styles";
 
 function WriteForm() {
+  const [text, setText] = useState("");
+  const maxLength = 1000;
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
   return (
     <Wrapper>
-      <TitleBox>
-        시은 님에 대한 솔직한 평가를 남겨 주세요 ✍🏻
-        <Desc>
-          재현 님의 솔직한 답변이 시은 님의 성장에 큰 도움이 될 거예요!
-          <br />
-          모든 답변은 익명으로 수집되어 전달되니 편하게 답변을 작성해 주세요.
-        </Desc>
-      </TitleBox>
+      <Answer>2. 협업 시 시은 님의 장점은 무엇인가요?</Answer>
+      <InputBox
+        value={text}
+        onChange={handleChange}
+        maxLength={maxLength}
+        placeholder="여기에 답변을 입력하세요."
+      />
+      <CharCount>{`${text.length} / ${maxLength}자`}</CharCount>
+      <BtnBox>
+        <PrevBtn>이전 질문으로</PrevBtn>
+        <NextBtn>다음 질문으로</NextBtn>
+      </BtnBox>
     </Wrapper>
   );
 }
