@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Main />}></Route>{" "}
         <Route path="login" element={<Login />}></Route>
-        <Route path="auth" element={<Auth />}></Route>
+        <Route path="auth/kakao/callback" element={<Auth />}></Route>
         <Route path="createform" element={<CreateForm />}></Route>
         <Route path="completeform" element={<CompleteForm />}></Route>
         <Route path="writeanswer" element={<WriteAnswer />}></Route>

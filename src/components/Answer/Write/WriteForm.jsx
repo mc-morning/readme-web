@@ -8,6 +8,8 @@ import {
   NextBtn,
   BtnBox,
 } from "./WriteForm.styles";
+import Prev from "../../../assets/Prev.svg";
+import Next from "../../../assets/Next.svg";
 
 function WriteForm() {
   const [text, setText] = useState("");
@@ -28,8 +30,14 @@ function WriteForm() {
       />
       <CharCount>{`${text.length} / ${maxLength}자`}</CharCount>
       <BtnBox>
-        <PrevBtn>이전 질문으로</PrevBtn>
-        <NextBtn>다음 질문으로</NextBtn>
+        <PrevBtn>
+          <img src={Prev} />
+          이전 질문으로
+        </PrevBtn>
+        <NextBtn>
+          다음 질문으로
+          <img src={Next} />
+        </NextBtn>
       </BtnBox>
     </Wrapper>
   );

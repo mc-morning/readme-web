@@ -63,6 +63,10 @@ export const PrevBtn = styled.button`
   border: 1px solid #366eff;
   background-color: #ffffff;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
 `;
 
 export const NextBtn = styled.button`
@@ -80,4 +84,8 @@ export const NextBtn = styled.button`
   border: 1px solid #366eff;
   background-color: #366eff;
   border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
 `;
