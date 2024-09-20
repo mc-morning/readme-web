@@ -6,15 +6,13 @@ import { useNavigate } from "react-router-dom";
 function Nav() {
   const navigate = useNavigate();
 
-  // 토큰 확인 함수
   const accessToken = localStorage.getItem("accessToken");
   const refreshToken = localStorage.getItem("refreshToken");
 
-  // 로그아웃 함수
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
-    navigate("/"); // 로그아웃 후 로그인 페이지로 이동
+    navigate("/");
   };
 
   return (
