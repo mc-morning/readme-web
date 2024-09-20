@@ -4,6 +4,7 @@ import axios from "axios";
 
 const Auth = () => {
   const navigate = useNavigate();
+  const CALLBACK_URL = process.env.REACT_APP_KAKAO_CALLBACK_URL;
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -11,9 +12,7 @@ const Auth = () => {
 
     if (code) {
       axios
-        .get(
-          `https://homeless-sheela-mc-morning-2364610f.koyeb.app/auth/kakao/callback?code=${code}`
-        )
+        .get(`${CALLBACK_URL}?code=${code}`)
         .then((response) => {
           const { accessToken } = response.data;
 
