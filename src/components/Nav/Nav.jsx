@@ -6,12 +6,15 @@ import { useNavigate } from "react-router-dom";
 function Nav() {
   const navigate = useNavigate();
 
-  const accessToken = localStorage.getItem("accessToken");
-  const refreshToken = localStorage.getItem("refreshToken");
-
+  const accessToken = localStorage.getItem("access_token");
+  const refreshToken = localStorage.getItem("refresh_token");
+  const accessExpiredAt = localStorage.getItem("access_expired_at");
+  const refreshExpiredAt = localStorage.getItem("refresh_expired_at");
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("access_expired_at");
+    localStorage.removeItem("refresh_expired_at");
     navigate("/");
   };
 
