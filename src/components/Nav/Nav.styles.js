@@ -30,4 +30,7 @@ export const MenuLink = styled(Link)`
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.8px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
 `;
