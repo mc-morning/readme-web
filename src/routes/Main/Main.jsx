@@ -5,8 +5,10 @@ import Landing from "../../components/Main/Landing/Landing";
 import { Wrapper, Banner, BannerText } from "./Main.styles";
 
 function Main() {
-  const accessToken = localStorage.getItem("accessToken");
-  const refreshToken = localStorage.getItem("refreshToken");
+  const currentTime = new Date().getTime();
+  const accessToken = localStorage.getItem("access_token");
+  const refreshToken = localStorage.getItem("refresh_token");
+  const accessExpiredAt = localStorage.getItem("access_expired_at");
 
   return (
     <Wrapper>
@@ -18,7 +20,11 @@ function Main() {
           나에 대한 평가를 받아보세요.
         </BannerText>
       </Banner>
-      {accessToken && refreshToken ? <AnswerList /> : <Landing />}
+      {accessToken && refreshToken && currentTime < accessExpiredAt ? (
+        <AnswerList />
+      ) : (
+        <Landing />
+      )}
     </Wrapper>
   );
 }
