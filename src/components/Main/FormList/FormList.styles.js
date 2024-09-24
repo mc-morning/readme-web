@@ -18,6 +18,7 @@ export const ListHeader = styled.div`
   display: flex;
   justify-content: space-between;
   width: 70%;
+  padding: 20px;
 `;
 
 export const HeaderButton = styled.button`
@@ -76,7 +77,7 @@ export const Title = styled.h1`
   max-width: 405px;
 `;
 
-export const Date = styled.p`
+export const CreateDate = styled.p`
   color: #9b9b9b;
   font-family: "Pretendard Variable";
   font-size: 12px;
