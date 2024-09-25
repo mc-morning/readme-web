@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Navbar = styled.div`
   height: 7.3vh;
@@ -22,7 +22,7 @@ export const MenuContainer = styled.div`
 
 export const MenuLink = styled(Link)`
   margin: 15px;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   text-decoration: none;
   color: #333;
   font-size: 20px;
