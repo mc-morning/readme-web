@@ -4,6 +4,8 @@ import Plus from "../../../assets/Plus.svg";
 import Cloud from "../../../assets/Cloud.svg";
 import Comment from "../../../assets/Comment.svg";
 import Trash from "../../../assets/Trash.svg";
+import CloudZero from "../../../assets/CloudZero.svg";
+import CommentZero from "../../../assets/CommentZero.svg";
 import {
   Wrapper,
   ListHeader,
@@ -19,10 +21,11 @@ import {
   ModalBox,
   ModalCon,
   ModalBtn,
+  ModalCloseBtn,
 } from "./FormList.styles";
 import { instance } from "../../../api/axios";
 
-const Modal = ({ isOpen, onClose }) => {
+const CopyModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
@@ -35,11 +38,30 @@ const Modal = ({ isOpen, onClose }) => {
   );
 };
 
+const DeleteModal = ({ isOpen, onClose, onDelete }) => {
+  if (!isOpen) return null;
+
+  return (
+    <ModalBox>
+      <ModalCon>
+        <p>정말로 삭제하시겠습니까?</p>
+        <ModalCloseBtn onClick={onClose}>닫기</ModalCloseBtn>
+        <ModalBtn onClick={onDelete} style={{ marginLeft: "10px" }}>
+          삭제하기
+        </ModalBtn>
+      </ModalCon>
+    </ModalBox>
+  );
+};
+
 function FormList() {
   const navigate = useNavigate();
   const [questionnaires, setQuestionnaires] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCopyModalOpen, setIsCopyModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [userName, setUserName] = useState("");
+  const [deleteTargetId, setDeleteTargetId] = useState(null); // 삭제할 대상 id
+
   const fetchQuestionnaires = async () => {
     try {
       const response = await instance.get("/questionnaire/list");
@@ -86,15 +108,34 @@ function FormList() {
     navigator.clipboard
       .writeText(url)
       .then(() => {
-        setIsModalOpen(true);
+        setIsCopyModalOpen(true);
       })
       .catch((error) => {
         console.error("링크 복사 실패:", error);
       });
   };
 
-  const closeModal = () => {
-    setIsModalOpen(false);
+  const closeCopyModal = () => {
+    setIsCopyModalOpen(false);
+  };
+
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false);
+  };
+
+  const handleDeleteClick = (id) => {
+    setDeleteTargetId(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleConfirmDelete = async () => {
+    try {
+      await instance.delete(`/questionnaire/${deleteTargetId}`);
+      fetchQuestionnaires();
+      setIsDeleteModalOpen(false);
+    } catch (error) {
+      console.error("질문지 삭제 실패:", error);
+    }
   };
 
   return (
@@ -112,17 +153,39 @@ function FormList() {
 
       {questionnaires.map((questionnaire) => (
         <Answer key={questionnaire.id}>
-          <img src={Cloud} style={{ marginLeft: "20px" }} alt="Cloud" />
+          {questionnaire.questions.length > 0 ? (
+            <>
+              <img src={Cloud} style={{ marginLeft: "20px" }} alt="Cloud" />
+            </>
+          ) : (
+            <>
+              <img src={CloudZero} style={{ marginLeft: "20px" }} alt="Cloud" />
+            </>
+          )}
           <AnsTitle>
             <Title>{questionnaire.title}</Title>
             <CreateDate>
               생성일 {formatKST(questionnaire.createdAt)}
-              <img src={Trash} style={{ marginLeft: "5px" }} alt="Trash" />
+              <img
+                src={Trash}
+                style={{ marginLeft: "5px", cursor: "pointer" }}
+                alt="Trash"
+                onClick={() => handleDeleteClick(questionnaire.id)}
+              />
             </CreateDate>
           </AnsTitle>
           <CommentBox>
-            <img src={Comment} alt="Comment" />
-            <CreateDate>답변 {questionnaire.questions.length}개</CreateDate>
+            {questionnaire.questions.length > 0 ? (
+              <>
+                <img src={Comment} alt="Comment" />
+                <CreateDate>답변 {questionnaire.questions.length}개</CreateDate>
+              </>
+            ) : (
+              <>
+                <img src={CommentZero} alt="Comment" />
+                <CreateDate>아직 답변이 없어요</CreateDate>
+              </>
+            )}
           </CommentBox>
           <BtnBox>
             <CopyBtn onClick={() => handleCopy(questionnaire.id)}>
@@ -135,7 +198,12 @@ function FormList() {
         </Answer>
       ))}
 
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
+      <CopyModal isOpen={isCopyModalOpen} onClose={closeCopyModal} />
+      <DeleteModal
+        isOpen={isDeleteModalOpen}
+        onClose={closeDeleteModal}
+        onDelete={handleConfirmDelete}
+      />
     </Wrapper>
   );
 }
