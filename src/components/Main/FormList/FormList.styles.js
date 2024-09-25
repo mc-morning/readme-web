@@ -144,13 +144,14 @@ export const ModalBox = styled.div`
   align-items: center;
   width: 100vw;
   height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
 `;
 
 export const ModalCon = styled.div`
   background-color: #fff;
   border-radius: 8px;
   border: 1px solid #cfcfcf;
-  padding: 50px;
+  padding: 30px 50px;
   font-family: "Pretendard Variable";
   text-decoration: none;
   color: #333;
@@ -168,6 +169,23 @@ export const ModalBtn = styled.button`
   border-radius: 6px;
   border: none;
   background: #4575f1;
+  color: #fff;
+  font-family: "Pretendard Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  cursor: pointer;
+  margin: 10px;
+`;
+
+export const ModalCloseBtn = styled.button`
+  width: 88px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  border: none;
+  background: #a8a8a8;
   color: #fff;
   font-family: "Pretendard Variable";
   font-size: 12px;

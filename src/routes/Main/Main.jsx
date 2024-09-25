@@ -2,7 +2,7 @@ import React from "react";
 import BannerImg from "../../assets/BannerImg.svg";
 import AnswerList from "../../components/Main/FormList/FormList";
 import Landing from "../../components/Main/Landing/Landing";
-import { Wrapper, Banner, BannerText } from "./Main.styles";
+import { Wrapper, Banner, BannerText, Highlight } from "./Main.styles";
 
 function Main() {
   const currentTime = new Date().getTime();
@@ -17,7 +17,7 @@ function Main() {
         <BannerText>
           간편하게 질문지를 만들고
           <br />
-          나에 대한 평가를 받아보세요.
+          <Highlight>나에 대한 객관적인 평가</Highlight>를 받아보세요.
         </BannerText>
       </Banner>
       {accessToken && refreshToken && currentTime < accessExpiredAt ? (

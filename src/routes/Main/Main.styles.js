@@ -13,6 +13,7 @@ export const Banner = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 20px;
 `;
 
 export const BannerText = styled.h1`
@@ -22,4 +23,9 @@ export const BannerText = styled.h1`
   font-style: normal;
   font-weight: 600;
   line-height: 150%;
+  text-align: left;
+`;
+
+export const Highlight = styled.span`
+  color: #366eff;
 `;
