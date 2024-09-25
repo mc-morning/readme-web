@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Wrapper,
   FormInput,
@@ -9,19 +9,40 @@ import {
 } from "./FormDesc.styles";
 import { useNavigate } from "react-router-dom";
 import Check from "../../../assets/Check.svg";
+import { instance } from "../../../api/axios";
 
 function FormDesc() {
   const navigate = useNavigate();
+  const [title, setTitle] = useState("");
+  const [headCount, setHeadCount] = useState("");
+
+  const handleCreate = async () => {
+    try {
+      const response = await instance.post("/questionnaire/create", {
+        title,
+        headCount: Number(headCount),
+      });
+      console.log(response.status);
+      if (response.status === 201) {
+        navigate("/completeform");
+      }
+    } catch (error) {
+      console.error("질문지 생성 실패:", error);
+    }
+  };
 
   return (
     <Wrapper>
       <FormBox>
         1. 질문지 제목을 입력해 주세요.
-        <FormInput />
+        <FormInput value={title} onChange={(e) => setTitle(e.target.value)} />
       </FormBox>
       <FormBox>
         2. 답변 작성에 참여할 인원 수를 알려주세요.
-        <FormInput />
+        <FormInput
+          value={headCount}
+          onChange={(e) => setHeadCount(e.target.value)}
+        />
       </FormBox>
       <FormBox>
         3. 다음과 같은 질문이 포함돼요.
@@ -29,7 +50,7 @@ function FormDesc() {
         <AnsGuide>
           <ul>
             <li style={{ marginBottom: "20px" }}>
-              시은 님의 첫 인상은 어떠셨나요?
+              협업 시 시은 님의 장점은 무엇인가요?
             </li>
             <li style={{ marginBottom: "20px" }}>
               프로젝트를 하면서 시은 님의 어떤 점이 돋보였나요?
@@ -41,14 +62,10 @@ function FormDesc() {
           </ul>
         </AnsGuide>
       </FormBox>
-      <CreateBtn
-        onClick={() => {
-          navigate("/completeform");
-        }}
-      >
+      <CreateBtn onClick={handleCreate}>
         질문지 만들기
-        <img src={Check} />
-      </CreateBtn>{" "}
+        <img src={Check} alt="Create" />
+      </CreateBtn>
     </Wrapper>
   );
 }
