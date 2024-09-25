@@ -1,3 +1,4 @@
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -125,7 +126,7 @@ export const CheckBtn = styled.button`
   flex-shrink: 0;
   border-radius: 6px;
   border: none;
-  background: #4575f1;
+  background: ${(props) => (props.isDisabled ? "#A8A8A8" : "#4575f1")};
   color: #fff;
   font-family: "Pretendard Variable";
   font-size: 12px;
