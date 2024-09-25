@@ -153,9 +153,18 @@ function FormList() {
 
       {questionnaires.map((questionnaire) => (
         <Answer key={questionnaire.id}>
-          {questionnaire.questions.length > 0 ? (
+          {questionnaire.completedUsers.length > 0 ? (
             <>
-              <img src={Cloud} style={{ marginLeft: "20px" }} alt="Cloud" />
+              <img
+                src={Cloud}
+                style={{
+                  marginLeft: "20px",
+                  opacity:
+                    (questionnaire.completedUsers.length + 1) /
+                    questionnaire.headCount,
+                }}
+                alt="Cloud"
+              />
             </>
           ) : (
             <>
@@ -175,10 +184,12 @@ function FormList() {
             </CreateDate>
           </AnsTitle>
           <CommentBox>
-            {questionnaire.questions.length > 0 ? (
+            {questionnaire.completedUsers.length > 0 ? (
               <>
                 <img src={Comment} alt="Comment" />
-                <CreateDate>답변 {questionnaire.questions.length}개</CreateDate>
+                <CreateDate>
+                  답변 {questionnaire.completedUsers.length}개
+                </CreateDate>
               </>
             ) : (
               <>
@@ -191,7 +202,10 @@ function FormList() {
             <CopyBtn onClick={() => handleCopy(questionnaire.id)}>
               링크 복사
             </CopyBtn>
-            <CheckBtn onClick={() => handleCheck(questionnaire.id)}>
+            <CheckBtn
+              onClick={() => handleCheck(questionnaire.id)}
+              isDisabled={questionnaire.completedUsers.length === 0}
+            >
               답변 확인하기
             </CheckBtn>
           </BtnBox>
