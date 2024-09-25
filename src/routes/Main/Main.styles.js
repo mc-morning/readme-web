@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 92.3vh;
@@ -14,11 +14,15 @@ export const Banner = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
+
+  img {
+    align-self: flex-end;
+  }
 `;
 
 export const BannerText = styled.h1`
   color: #3d4043;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
