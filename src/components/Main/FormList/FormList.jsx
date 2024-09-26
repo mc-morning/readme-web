@@ -205,6 +205,7 @@ function FormList() {
             <CheckBtn
               onClick={() => handleCheck(questionnaire.id)}
               isDisabled={questionnaire.completedUsers.length === 0}
+              disabled={questionnaire.completedUsers.length === 0} // disabled 속성 추가
             >
               답변 확인하기
             </CheckBtn>
