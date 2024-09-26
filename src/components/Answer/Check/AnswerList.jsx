@@ -21,6 +21,7 @@ function AnswerList() {
     try {
       const response = await instance.get(`/questionnaire/${questionnaireId}`);
       setQuestionnaire(response.data); // 질문지 데이터를 상태에 저장
+      console.log(response.data);
     } catch (error) {
       console.error("질문지 불러오기 오류:", error);
       setError("질문지 데이터를 불러오는 중 오류가 발생했습니다.");
@@ -30,6 +31,27 @@ function AnswerList() {
   };
 
   useEffect(() => {
+    const fetchQuestionnaire = async () => {
+      try {
+        const response = await instance.get(
+          `/questionnaire/${questionnaireId}`
+        );
+        const sortedQuestions = response.data.questions.sort(
+          (a, b) => a.questionId - b.questionId
+        );
+        setQuestionnaire({
+          ...response.data,
+          questions: sortedQuestions,
+        });
+        console.log(response.data);
+      } catch (error) {
+        console.error("질문지 불러오기 오류:", error);
+        setError("질문지 데이터를 불러오는 중 오류가 발생했습니다.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchQuestionnaire();
   }, [questionnaireId]);
 
