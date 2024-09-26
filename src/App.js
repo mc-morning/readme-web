@@ -20,7 +20,7 @@ function App() {
         <Route path="createform" element={<CreateForm />}></Route>
         <Route path="completeform" element={<CompleteForm />}></Route>
         <Route path="writeanswer" element={<WriteAnswer />}></Route>
-        <Route path="answercheck" element={<AnswerCheck />}></Route>
+        <Route path="answercheck/:id" element={<AnswerCheck />}></Route>
       </Routes>
     </BrowserRouter>
   );
