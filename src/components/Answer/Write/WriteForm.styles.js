@@ -89,3 +89,23 @@ export const NextBtn = styled.button`
   justify-content: center;
   gap: 3px;
 `;
+
+export const ProgressBarContainer = styled.div`
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  height: 6px;
+  position: fixed;
+  top: 7.3vh;
+  left: 0;
+  display: flex;
+`;
+
+export const ProgressBarFill = styled.div`
+  height: 100%;
+  border-radius: 50px;
+  background: #4575f1;
+  width: 0;
+  transition: width 0.3s ease;
+`;

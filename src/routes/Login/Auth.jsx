@@ -19,7 +19,10 @@ function Auth() {
       localStorage.setItem("access_expired_at", accessExpiredAt);
       localStorage.setItem("refresh_expired_at", refreshExpiredAt);
 
-      navigate("/");
+      // 토큰이 저장된 후 페이지 이동을 약간 늦추기
+      setTimeout(() => {
+        navigate("/");
+      }, 100); // 100ms 정도 딜레이
     }
   }, [navigate]);
 
