@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Wrapper,
   FormInput,
@@ -15,6 +15,20 @@ function FormDesc() {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [headCount, setHeadCount] = useState("");
+  const [userName, setUserName] = useState("");
+
+  const fetchUserInfo = async () => {
+    try {
+      const response = await instance.get("/auth/user");
+      setUserName(response.data);
+    } catch (error) {
+      console.log("사용자 정보 불러오기 오류:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserInfo();
+  });
 
   const handleCreate = async () => {
     try {
@@ -50,15 +64,16 @@ function FormDesc() {
         <AnsGuide>
           <ul>
             <li style={{ marginBottom: "20px" }}>
-              협업 시 시은 님의 장점은 무엇인가요?
+              협업 시 {userName.username} 님의 장점은 무엇인가요?
             </li>
             <li style={{ marginBottom: "20px" }}>
-              프로젝트를 하면서 시은 님의 어떤 점이 돋보였나요?
+              프로젝트를 하면서 {userName.username} 님의 어떤 점이 돋보였나요?
             </li>
             <li style={{ marginBottom: "20px" }}>
-              앞으로 시은 님이 프로젝트를 하면서 보완해야 할 부분이 있나요?
+              앞으로 {userName.username} 님이 프로젝트를 하면서 보완해야 할
+              부분이 있나요?
             </li>
-            <li>시은 님께 마지막으로 하고 싶은 말이 있나요?</li>
+            <li>{userName.username} 님께 마지막으로 하고 싶은 말이 있나요?</li>
           </ul>
         </AnsGuide>
       </FormBox>
