@@ -1,15 +1,22 @@
 import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { Wrapper, Title, AnswerBtn, Desc } from "./StartAnswer.styles";
 import Logo from "../../../assets/LogoV2.svg";
 import Kakao from "../../../assets/kakao.png";
 
 const StartAnswer = () => {
+  const { questionnaireId } = useParams();
   const REST_API_KEY = process.env.REACT_APP_KAKAO_CLIENT_ID;
   const REDIRECT_URI = process.env.REACT_APP_KAKAO_CALLBACK_URL;
+  const navigate = useNavigate();
 
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
   const loginHandler = () => {
     window.location.href = link;
+  };
+
+  const handleStartAnswer = () => {
+    navigate(`/writeanswer/${questionnaireId}`); // Navigate to WriteAnswer with questionnaireId
   };
 
   return (
@@ -27,7 +34,7 @@ const StartAnswer = () => {
         style={{ cursor: "pointer", margin: "40px 0 20px 0" }}
         onClick={loginHandler}
       />
-      <AnswerBtn>지금 바로 답변하기</AnswerBtn>
+      <AnswerBtn onClick={handleStartAnswer}>지금 바로 답변하기</AnswerBtn>
     </Wrapper>
   );
 };

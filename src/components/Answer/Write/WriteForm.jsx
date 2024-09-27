@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { instance } from "../../../api/axios";
 import {
   Answer,
@@ -37,9 +37,10 @@ const questions = [
 
 function WriteForm() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState(Array(questions.length).fill("")); // Array to store answers
+  const [answers, setAnswers] = useState(Array(questions.length).fill(""));
   const maxLength = 1000;
   const navigate = useNavigate();
+  const { questionnaireId } = useParams();
 
   const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
 
@@ -65,14 +66,15 @@ function WriteForm() {
     try {
       for (let i = 0; i < questions.length; i++) {
         const payload = {
-          questionnaireId: "48b7a6ea-f6b0-42b7-b823-6e409e6c00bd",
+          questionnaireId,
           questionId: questions[i].questionId,
           question: questions[i].question,
           answer: answers[i],
         };
-
+        console.log(payload);
         await instance.post("/answer", payload);
       }
+
       alert("답변이 성공적으로 제출되었습니다!");
       navigate("/");
     } catch (error) {
