@@ -70,14 +70,14 @@ function AnswerList() {
                 style={{ marginRight: "5px" }}
                 alt="Comment Icon"
               />
-              <Highlight>{questionnaire.questions.length}</Highlight>개의 질문과
-              답변을 확인해보세요
+              <Highlight>{questionnaire.questions[0].answers.length}</Highlight>
+              개의 질문과 답변을 확인해보세요
             </Desc>
           </TitleBox>
 
           {questionnaire.questions.map((question) => (
             <AnswerBox key={question.questionId}>
-              {question.questionId}. {question.question}
+              {question.question}
               {question.answers.map((answer, index) => (
                 <Answer key={index}>{answer}</Answer>
               ))}
