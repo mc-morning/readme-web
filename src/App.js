@@ -20,8 +20,14 @@ function App() {
         <Route path="auth" element={<Auth />}></Route>
         <Route path="createform" element={<CreateForm />}></Route>
         <Route path="completeform" element={<CompleteForm />}></Route>
-        <Route path="startanswer" element={<StartAnswer />}></Route>
-        <Route path="writeanswer" element={<WriteAnswer />}></Route>
+        <Route
+          path="startanswer/:questionnaireId"
+          element={<StartAnswer />}
+        ></Route>
+        <Route
+          path="writeanswer/:questionnaireId"
+          element={<WriteAnswer />}
+        ></Route>
         <Route
           path="answercheck/:questionnaireId"
           element={<AnswerCheck />}

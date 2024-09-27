@@ -112,6 +112,7 @@ export const CopyBtn = styled.button`
   border-radius: 6px;
   border: 1px solid #366eff;
   color: #366eff;
+  background: #fff;
   font-family: "Pretendard Variable";
   font-size: 12px;
   font-style: normal;

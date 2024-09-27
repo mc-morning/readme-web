@@ -104,7 +104,7 @@ function FormList() {
   };
 
   const handleCopy = (id) => {
-    const url = `${window.location.origin}/answercheck/${id}`;
+    const url = `${window.location.origin}/startanswer/${id}`;
     navigator.clipboard
       .writeText(url)
       .then(() => {
@@ -205,7 +205,7 @@ function FormList() {
             <CheckBtn
               onClick={() => handleCheck(questionnaire.id)}
               isDisabled={questionnaire.completedUsers.length === 0}
-              disabled={questionnaire.completedUsers.length === 0} // disabled 속성 추가
+              disabled={questionnaire.completedUsers.length === 0}
             >
               답변 확인하기
             </CheckBtn>
