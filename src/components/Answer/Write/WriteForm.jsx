@@ -11,9 +11,12 @@ import {
   BtnBox,
   ProgressBarContainer,
   ProgressBarFill,
-} from "./WriteForm.styles";
+  SpinnerOverlay, // 새로운 스타일 추가
+  Spinner,
+} from "./WriteForm.styles"; // Spinner 관련 스타일 추가
 import Prev from "../../../assets/Prev.svg";
 import Next from "../../../assets/Next.svg";
+import Check from "../../../assets/Check.svg";
 
 const questions = [
   {
@@ -38,6 +41,7 @@ const questions = [
 function WriteForm() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(""));
+  const [loading, setLoading] = useState(false); // 로딩 상태 추가
   const maxLength = 1000;
   const navigate = useNavigate();
   const { questionnaireId } = useParams();
@@ -63,6 +67,7 @@ function WriteForm() {
   };
 
   const handleSubmit = async () => {
+    setLoading(true); // 제출 시작 시 로딩 상태 true
     try {
       for (let i = 0; i < questions.length; i++) {
         const payload = {
@@ -80,11 +85,20 @@ function WriteForm() {
     } catch (error) {
       console.error("답변 제출 오류:", error);
       alert("답변 제출 중 오류가 발생했습니다.");
+    } finally {
+      setLoading(false); // 제출 후 로딩 상태 false
     }
   };
 
   return (
     <Wrapper>
+      {/* Spinner Overlay */}
+      {loading && (
+        <SpinnerOverlay>
+          <Spinner />
+        </SpinnerOverlay>
+      )}
+
       {/* Progress Bar */}
       <ProgressBarContainer>
         <ProgressBarFill style={{ width: `${progress}%` }} />
@@ -114,7 +128,10 @@ function WriteForm() {
             <img src={Next} alt="Next" />
           </NextBtn>
         ) : (
-          <NextBtn onClick={handleSubmit}>답변 제출하기</NextBtn>
+          <NextBtn onClick={handleSubmit}>
+            답변 제출하기
+            <img src={Check} alt="Check" />
+          </NextBtn>
         )}
       </BtnBox>
     </Wrapper>

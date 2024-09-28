@@ -109,3 +109,34 @@ export const ProgressBarFill = styled.div`
   width: 0;
   transition: width 0.3s ease;
 `;
+
+export const SpinnerOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); // 화면 어두워짐
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; // 화면 위에 오도록
+`;
+
+export const Spinner = styled.div`
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`;

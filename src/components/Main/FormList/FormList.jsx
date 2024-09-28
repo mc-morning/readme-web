@@ -89,12 +89,9 @@ function FormList() {
 
   const formatKST = (dateString) => {
     const date = new Date(dateString);
-    const kstOffset = 9 * 60;
-    const localTime = new Date(date.getTime() + kstOffset * 60 * 1000);
-
-    const year = localTime.getFullYear();
-    const month = String(localTime.getMonth() + 1).padStart(2, "0");
-    const day = String(localTime.getDate()).padStart(2, "0");
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
 
     return `${year}.${month}.${day}`;
   };
