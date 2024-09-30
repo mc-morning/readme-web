@@ -15,30 +15,33 @@ import {
   ModalCon,
 } from "./ShareLink.styles";
 import { instance } from "../../../api/axios";
-import { useNavigate } from "react-router-dom"; // For navigating to the home page
+import { useNavigate, useParams } from "react-router-dom"; // Import useParams to get the questionnaireId from the URL
 
 function ShareLink() {
+  const { questionnaireId } = useParams(); // Get questionnaireId from the URL
   const [copySuccess, setCopySuccess] = useState("");
-  const [questionnaires, setQuestionnaires] = useState([]);
+  const [questionnaire, setQuestionnaire] = useState(null); // To store the fetched questionnaire
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
   const navigate = useNavigate(); // React Router navigation
 
-  const fetchQuestionnaires = async () => {
+  const fetchQuestionnaire = async () => {
     try {
-      const response = await instance.get("/questionnaire/list");
-      setQuestionnaires(response.data);
+      // Fetch the specific questionnaire by its ID
+      const response = await instance.get(`/questionnaire/${questionnaireId}`);
+      setQuestionnaire(response.data); // Set the fetched questionnaire data
       console.log(response.data);
     } catch (error) {
-      console.error("질문지 리스트 불러오기 오류:", error);
+      console.error("질문지 불러오기 오류:", error);
     }
   };
 
   useEffect(() => {
-    fetchQuestionnaires();
-  }, []);
+    fetchQuestionnaire();
+  }, [questionnaireId]); // Fetch the questionnaire when the component mounts or when questionnaireId changes
 
-  const linkToShare =
-    questionnaires.length > 0 ? `${questionnaires[0].id}` : "";
+  const linkToShare = questionnaire
+    ? `${window.location.origin}/startanswer/${questionnaire.id}`
+    : "";
 
   const copyToClipboard = () => {
     if (!linkToShare) {
@@ -69,7 +72,9 @@ function ShareLink() {
   return (
     <Wrapper>
       <Title>
-        24-2 캡스톤디자인 08팀 박시은 동료평가{" "}
+        {questionnaire
+          ? `${questionnaire.title} 질문지가 생성되었어요!`
+          : "질문지를 불러오는 중입니다..."}
         <Highlight>질문지가 생성되었어요!</Highlight>
       </Title>
       <img src={Complete} alt="Complete" />
@@ -92,7 +97,7 @@ function ShareLink() {
       {isModalOpen && (
         <ModalBox>
           <ModalCon>
-            <p>복사가 완료되었습니다!</p>
+            <p>{copySuccess}</p>
             <ModalCloseBtn onClick={closeModal}>닫기</ModalCloseBtn>
             <ModalBtn onClick={goToHome} style={{ marginLeft: "10px" }}>
               홈으로

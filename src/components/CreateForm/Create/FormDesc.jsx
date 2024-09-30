@@ -28,7 +28,7 @@ function FormDesc() {
 
   useEffect(() => {
     fetchUserInfo();
-  });
+  }, []);
 
   const handleCreate = async () => {
     try {
@@ -36,9 +36,11 @@ function FormDesc() {
         title,
         headCount: Number(headCount),
       });
-      console.log(response.status);
+
       if (response.status === 201) {
-        navigate("/completeform");
+        // Extract the questionnaire id from the response and navigate
+        const questionnaireId = response.data.id;
+        navigate(`/completeform/${questionnaireId}`);
       }
     } catch (error) {
       console.error("질문지 생성 실패:", error);

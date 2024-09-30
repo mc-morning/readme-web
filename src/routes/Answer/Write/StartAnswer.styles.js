@@ -19,7 +19,15 @@ export const Desc = styled.div`
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
-  line-height: 150%;
+`;
+
+export const Highlight = styled.h1`
+  color: #366eff;
+  text-align: center;
+  font-family: "Pretendard Variable";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
 `;
 
 export const Title = styled.p`

@@ -60,7 +60,7 @@ function FormList() {
   const [isCopyModalOpen, setIsCopyModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [userName, setUserName] = useState("");
-  const [deleteTargetId, setDeleteTargetId] = useState(null); // 삭제할 대상 id
+  const [deleteTargetId, setDeleteTargetId] = useState(null);
 
   const fetchQuestionnaires = async () => {
     try {

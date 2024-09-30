@@ -19,7 +19,10 @@ function App() {
         <Route path="login" element={<Login />}></Route>
         <Route path="auth" element={<Auth />}></Route>
         <Route path="createform" element={<CreateForm />}></Route>
-        <Route path="completeform" element={<CompleteForm />}></Route>
+        <Route
+          path="completeform/:questionnaireId"
+          element={<CompleteForm />}
+        ></Route>
         <Route
           path="startanswer/:questionnaireId"
           element={<StartAnswer />}
