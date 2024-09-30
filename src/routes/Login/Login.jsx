@@ -2,6 +2,7 @@ import React from "react";
 import { Wrapper, Title } from "./Login.styles";
 import Logo from "../../assets/LogoV2.svg";
 import Kakao from "../../assets/kakao.png";
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
   const REST_API_KEY = process.env.REACT_APP_KAKAO_CLIENT_ID;

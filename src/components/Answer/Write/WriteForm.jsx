@@ -136,12 +136,16 @@ function WriteForm() {
           <CharCount>{`${answers[currentQuestionIndex].length} / ${maxLength}자`}</CharCount>
 
           <BtnBox>
-            {currentQuestionIndex > 0 && (
-              <PrevBtn onClick={handlePrev}>
-                <img src={Prev} alt="Prev" />
-                이전 질문으로
-              </PrevBtn>
-            )}
+            <PrevBtn
+              onClick={handlePrev}
+              style={{
+                visibility: currentQuestionIndex > 0 ? "visible" : "hidden",
+              }}
+            >
+              <img src={Prev} alt="Prev" />
+              이전 질문으로
+            </PrevBtn>
+
             {currentQuestionIndex < questions.length - 1 ? (
               <NextBtn onClick={handleNext}>
                 다음 질문으로
