@@ -5,4 +5,12 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;

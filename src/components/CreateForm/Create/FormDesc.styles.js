@@ -6,6 +6,14 @@ export const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 80px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 export const FormBox = styled.div`
