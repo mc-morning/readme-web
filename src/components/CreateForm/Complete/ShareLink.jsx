@@ -29,7 +29,6 @@ function ShareLink() {
       // Fetch the specific questionnaire by its ID
       const response = await instance.get(`/questionnaire/${questionnaireId}`);
       setQuestionnaire(response.data); // Set the fetched questionnaire data
-      console.log(response.data);
     } catch (error) {
       console.error("질문지 불러오기 오류:", error);
     }

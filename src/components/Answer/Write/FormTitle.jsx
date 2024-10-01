@@ -12,7 +12,6 @@ function FormTitle() {
     try {
       const response = await instance.get("/auth/user");
       setUserName(response.data);
-      console.log(response.data);
     } catch (error) {
       console.log("사용자 정보 불러오기 실패", error);
     }
@@ -22,7 +21,6 @@ function FormTitle() {
     try {
       const response = await instance.get(`/questionnaire/${questionnaireId}`);
       setQuestionnaire(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("질문지 불러오기 오류:", error);
     }

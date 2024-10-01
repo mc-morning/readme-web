@@ -35,7 +35,6 @@ function WriteForm() {
       const response = await instance.get(`/questionnaire/${questionnaireId}`);
       const creator = response.data.creator;
       setQuestionnaire(creator);
-      console.log(creator);
 
       // 질문 리스트 설정
       const questionsData = [
@@ -98,7 +97,6 @@ function WriteForm() {
           question: questions[i].question,
           answer: answers[i],
         };
-        console.log(payload);
         await instance.post("/answer", payload);
       }
 

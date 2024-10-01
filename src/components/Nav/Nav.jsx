@@ -33,7 +33,7 @@ function Nav() {
           </>
         ) : (
           <>
-            <MenuLink to="/">마이페이지</MenuLink>
+            <MenuLink to="/login">마이페이지</MenuLink>
             <MenuLink to="/login">로그인</MenuLink>
           </>
         )}

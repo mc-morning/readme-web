@@ -66,7 +66,6 @@ function FormList() {
     try {
       const response = await instance.get("/questionnaire/list");
       setQuestionnaires(response.data);
-      console.log(response.data);
     } catch (error) {
       console.error("질문지 리스트 불러오기 오류:", error);
     }
@@ -76,7 +75,6 @@ function FormList() {
     try {
       const response = await instance.get("/auth/user");
       setUserName(response.data);
-      console.log(response.data);
     } catch (error) {
       console.log("사용자 정보 불러오기 오류:", error);
     }

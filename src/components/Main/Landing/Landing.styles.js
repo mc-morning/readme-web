@@ -20,9 +20,10 @@ export const Text = styled.div`
 export const Title1 = styled.h1`
   margin: 0;
   padding: 0;
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 600;
   text-align: left;
+  line-height: 1.4;
 
   span {
     color: #4575f1;
@@ -35,6 +36,7 @@ export const Title2 = styled.h1`
   font-size: 32px;
   font-weight: 600;
   text-align: left;
+  line-height: 1.4;
 
   span {
     color: #4575f1;

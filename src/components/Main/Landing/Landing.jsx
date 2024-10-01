@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 
-import landing1 from '../../../assets/Landing1.png';
 import landing2 from '../../../assets/Landing2.png';
 import landing3 from '../../../assets/Landing3.png';
 import landing4 from '../../../assets/Landing4.png';
+import landing5 from '../../../assets/Landing5.png';
 
 import Logo from '../../../assets/LogoV2.svg';
 import { Link, useNavigate } from 'react-router-dom';
@@ -40,17 +40,17 @@ function Landing() {
       <Section1 ref={section1Ref}>
         <Text>
           <Title1 className="title">
-            동료들이 보는 <span>나의 모습</span>이 어떤지
+            리드미에서 <span>나의 장단점</span>을 확인하고
             <br />
-            궁금하지 않으신가요?
+            이를 개선해 나가는 경험을 할 수 있어요
           </Title1>
           <Description className="content">
-            리드미에서는 동료들의 답변을 통해 자신의 강점과 보완할 점을 찾고,
+            리드미는 스스로의 능력을 보다 효율적으로 활용하고, 지속적인 성장과 발전을
             <br />
-            이를 활용하고 개선할 수 있는 기회를 마련해요.
+            도모하기 위한 팀 프로젝트 동료 평가 서비스예요.
           </Description>
         </Text>
-        <img src={landing1} alt="landing1" className="content" />
+        <img src={landing5} alt="landing5" className="content" />
       </Section1>
 
       <Section2 ref={section2Ref}>
