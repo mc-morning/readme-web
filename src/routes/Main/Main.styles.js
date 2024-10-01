@@ -4,6 +4,14 @@ export const Wrapper = styled.div`
   height: 92.3vh;
   background-color: #fff;
   text-align: center;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 export const Banner = styled.div`
@@ -14,6 +22,7 @@ export const Banner = styled.div`
   align-items: center;
   justify-content: center;
   gap: 20px;
+  overflow: auto;
 
   img {
     align-self: flex-end;
