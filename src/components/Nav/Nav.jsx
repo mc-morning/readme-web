@@ -13,6 +13,7 @@ function Nav() {
 
   const handleLogout = () => {
     localStorage.clear();
+    navigate("/");
     window.location.reload(true);
   };
 
