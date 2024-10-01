@@ -11,7 +11,7 @@ function Auth() {
     const accessToken = urlParams.get("access_token");
     const refreshToken = urlParams.get("refresh_token");
     const accessExpiredAt = urlParams.get("access_expired_at");
-    const refreshExpiredAt = urlParams.get("refresh_expired_at");
+    const refreshExpiredAt = urlParams.get("refresh_expired_at").replace('undefined', '');
 
     if (accessToken && refreshToken && accessExpiredAt && refreshExpiredAt) {
       localStorage.setItem("access_token", accessToken);

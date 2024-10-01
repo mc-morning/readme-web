@@ -57,7 +57,11 @@ function FormDesc() {
         2. 답변 작성에 참여할 인원 수를 알려주세요.
         <FormInput
           value={headCount}
-          onChange={(e) => setHeadCount(e.target.value)}
+          onChange={(e) => {
+            if (!isNaN(Number(e.target.value))) {
+              setHeadCount(e.target.value)
+            }
+          }}
         />
       </FormBox>
       <FormBox>
