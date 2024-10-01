@@ -1,5 +1,5 @@
-import { isDisabled } from "@testing-library/user-event/dist/utils";
-import styled from "styled-components";
+import { isDisabled } from '@testing-library/user-event/dist/utils';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   padding: 50px;
@@ -11,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const ListHeader = styled.div`
   color: #333;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
@@ -31,7 +31,7 @@ export const HeaderButton = styled.button`
   border: none;
   background: #366eff;
   color: #fff;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -66,7 +66,7 @@ export const AnsTitle = styled.div`
 
 export const Title = styled.h1`
   color: #383838;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -80,7 +80,7 @@ export const Title = styled.h1`
 
 export const CreateDate = styled.p`
   color: #9b9b9b;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -113,7 +113,7 @@ export const CopyBtn = styled.button`
   border: 1px solid #366eff;
   color: #366eff;
   background: #fff;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -127,9 +127,9 @@ export const CheckBtn = styled.button`
   flex-shrink: 0;
   border-radius: 6px;
   border: none;
-  background: ${(props) => (props.isDisabled ? "#A8A8A8" : "#4575f1")};
+  background: ${props => (props.isDisabled ? '#A8A8A8' : '#4575f1')};
   color: #fff;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -147,6 +147,7 @@ export const ModalBox = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
 `;
 
 export const ModalCon = styled.div`
@@ -154,7 +155,7 @@ export const ModalCon = styled.div`
   border-radius: 8px;
   border: 1px solid #cfcfcf;
   padding: 30px 50px;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   text-decoration: none;
   color: #333;
   font-size: 20px;
@@ -172,7 +173,7 @@ export const ModalBtn = styled.button`
   border: none;
   background: #4575f1;
   color: #fff;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -189,7 +190,7 @@ export const ModalCloseBtn = styled.button`
   border: none;
   background: #a8a8a8;
   color: #fff;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
