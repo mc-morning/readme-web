@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   overflow: auto;
+  padding: 7.3vh 0 0 0;
 
   &::-webkit-scrollbar {
     display: none;

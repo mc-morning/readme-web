@@ -28,7 +28,7 @@ function WriteForm() {
   const navigate = useNavigate();
   const { questionnaireId } = useParams();
 
-  const progress = ((currentQuestionIndex + 1) / (questions.length || 1)) * 100;
+  const progress = questions.length ? ((currentQuestionIndex + 1) / (questions.length || 1)) * 100 : 0;
 
   const fetchQuestionnaire = async () => {
     try {

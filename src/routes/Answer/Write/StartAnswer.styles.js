@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  padding: 3vh 0 0 0;
   height: 92.3vh;
   background-color: #fff;
   display: flex;
@@ -10,8 +11,6 @@ export const Wrapper = styled.div`
 `;
 
 export const Desc = styled.div`
-  width: 531px;
-  height: 104px;
   flex-shrink: 0;
   color: #333;
   text-align: center;
