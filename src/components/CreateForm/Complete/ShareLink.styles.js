@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  padding: 7.3vh 0 0 0;
 `;
 
 export const Title = styled.div`
