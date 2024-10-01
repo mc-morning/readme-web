@@ -38,10 +38,10 @@ export const CopyBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 540px;
   height: 48px;
   border-radius: 6px;
   border: 1px solid #cfcfcf;
+  padding: 0 56px 0 12px;
   position: relative;
 `;
 
@@ -49,7 +49,8 @@ export const CopyButton = styled.button`
   width: 43px;
   height: 48px;
   border-radius: 0px 6px 6px 0px;
-  border: 1px solid #cfcfcf;
+  border: none;
+  border-left: 1px solid #cfcfcf;
   background: #e1e9ff;
   cursor: pointer;
   display: flex;

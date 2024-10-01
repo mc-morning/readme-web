@@ -2,6 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Navbar = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100%;
   height: 7.3vh;
   background-color: #fff;
   display: flex;

@@ -147,7 +147,7 @@ export const ModalBox = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 3;
+  z-index: 4;
 `;
 
 export const ModalCon = styled.div`

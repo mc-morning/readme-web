@@ -1,25 +1,19 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  padding: 7.3vh 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   overflow: auto;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 `;
 
 export const Title = styled.div`
   height: 96px;
   flex-shrink: 0;
   color: #333;
-  font-family: "Pretendard Variable";
+  font-family: 'Pretendard Variable';
   font-size: 32px;
   font-style: normal;
   font-weight: 600;

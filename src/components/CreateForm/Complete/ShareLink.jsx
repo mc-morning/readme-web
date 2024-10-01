@@ -72,13 +72,13 @@ function ShareLink() {
     <Wrapper>
       <Title>
         {questionnaire
-          ? `${questionnaire.title} 질문지가 생성되었어요!`
+          ? `${questionnaire.title}`
           : "질문지를 불러오는 중입니다..."}
         <Highlight>질문지가 생성되었어요!</Highlight>
       </Title>
       <img src={Complete} alt="Complete" />
       <LinkBox>
-        <Desc>지금 동료에게 질문지를 공유하고 답변을 받아 보세요</Desc>
+        <Desc>지금 팀원에게 질문지를 공유하고 답변을 받아 보세요</Desc>
         <CopyBox>
           {linkToShare ? (
             <>
